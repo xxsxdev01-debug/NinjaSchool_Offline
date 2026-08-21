@@ -55,7 +55,8 @@ Hiểu Rõ Cách Chơi Của Game NinjaSchool
 
 ### SAO CHÉP VÀ DÁN ĐOẠN MÃ DƯỚI VÀO TERMUX
 ```
-apt update && apt upgrade -y
+apk update && apk upgrade -y
+apk add curl bash
 clear
 curl -L "https://raw.githubusercontent.com/xxsxdev01-debug/NinjaSchool_Offline/main/install.sh" -o install.sh && bash install.sh
 
