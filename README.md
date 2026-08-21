@@ -43,8 +43,8 @@ Hiểu Rõ Cách Chơi Của Game NinjaSchool
 - Hoàn Toàn Có Thể Sử Dụng Để Thương Mại Nếu Bạn Có Nhu Cầu
 ### IV. Địa Chỉ IP Offline Và Port Của Server Là Gì?
 - Địa Chỉ IP OffLine: 127.0.0.1
-- Port: 14445
-- Đầy Đủ: DragonBall:127.0.0.1:14445:0,0,0
+- Port: 14444
+- Đầy Đủ: DragonBall:127.0.0.1:14444:0,0,0
 <div align="center">
   
   
@@ -72,13 +72,13 @@ xxsxdev01-debug.sh
 </div>
 
 ### BƯỚC 1 - Khởi Chạy  Server
-- Chắc Chắn [KSWEB](https://xemlinkhot.com/e4Q95yZXdK) Đã Được Bật Và Cho Phép Chạy Ngầm([TẢI XUỐNG KSWEB](https://xemlinkhot.com/e4Q95yZXdK))
+- Coming Soon
 - Server Khởi Chạy Từ TerMux
-- Đặt Tên Cơ Sở Dữ Liệu ([SQL](https://xemnote.com/jRfzh9OyPh)) Là: `dragonball` ([TẢI XUỐNG TỆP SQL](https://xemnote.com/jRfzh9OyPh))
+- Coming Soon
 ### BƯỚC 2 - Config Client
 - Sau Khi Server Chạy Thành Công Có Thể Vào Game
-- Client [Android] Offline(https://github.com/xxsxdev01-debug/DragonBall/releases)
-- Client [Android] Online(https://github.com/xxsxdev01-debug/DragonBall/releases))
+- Client [Coming Soon] Offline(https://github.com/xxsxdev01-debug/DragonBall/releases)
+- Client [Coming Soon] Online(https://github.com/xxsxdev01-debug/DragonBall/releases))
 ### BƯỚC 3 - TẠO TÀI KHOẢN
 > Tài Khoản Mặc Định<br/>
 > Tài Khoản: admin<br/>
