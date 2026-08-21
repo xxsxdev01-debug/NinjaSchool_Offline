@@ -23,7 +23,8 @@ def setup_database():
     print(f"\033[1;36m[1/5] Cài đặt gói hệ thống bằng apk...\033[0m")
     os.system("apk update")
     # Thay thế php82-apache2/mysqli/session thành các gói php8 tương thích trên Alpine iSH
-    os.system("apk add mariadb mariadb-client wget unzip curl")
+    os.system("apk add mariadb mariadb-client apache2 wget unzip curl")
+
 
     # 3. CẤU HÌNH FIX LỖI JAVA
     print(f"\033[1;33m[*] Đang cấu hình Fix lỗi NullPointerException...\033[0m")
@@ -37,17 +38,19 @@ def setup_database():
         f.write("innodb_strict_mode=0\n")
         f.write("lower_case_table_names=1\n")
 
-    # 4. KHỞI ĐỘNG MYSQL (Đã thêm tạo user/group mysql để tránh lỗi chown và mariadb-install-db)
+        # 4. KHỞI ĐỘNG MYSQL (Đã tối ưu để tránh lỗi Segmentation fault trên iSH)
     print(f"\033[1;36m[2/5] Khởi động MariaDB Server...\033[0m")
     os.system("addgroup -g 1000 mysql 2>/dev/null")
     os.system("adduser -u 1000 -D -G mysql mysql 2>/dev/null")
     os.system("mkdir -p /run/mysqld && chown mysql:mysql /run/mysqld")
     mysql_data_dir = "/var/lib/mysql"
     if not os.path.exists(f"{mysql_data_dir}/mysql"):
-        os.system("mariadb-install-db --user=mysql --datadir=/var/lib/mysql")
+        # Thêm các cờ tối ưu để tránh crash bộ nhớ trên iSH
+        os.system("mariadb-install-db --user=mysql --datadir=/var/lib/mysql --skip-name-resolve --force")
     
     os.system("nohup mariadbd-safe --skip-log-bin --lower-case-table-names=1 --user=root > /dev/null 2>&1 &")
     time.sleep(10)
+
 
     # 5. NẠP DỮ LIỆU TỪ GITHUB
     print(f"\033[1;36m[3/5] Đang nạp SQL từ GitHub...\033[0m")
