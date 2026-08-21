@@ -19,12 +19,10 @@ def setup_database():
     os.system("killall -9 httpd mariadbd mysqld 2>/dev/null")
     os.system("rm -f /run/mysqld/mysqld.sock")
     
-    # 2. CÀI ĐẶT GÓI (Sử dụng apk của Alpine Linux - Đã thay thế các gói php không tồn tại bằng php8 hoặc bỏ qua để tránh lỗi)
+    # 2. CÀI ĐẶT GÓI (Sử dụng apk của Alpine Linux)
     print(f"\033[1;36m[1/5] Cài đặt gói hệ thống bằng apk...\033[0m")
     os.system("apk update")
-    # Thay thế php82-apache2/mysqli/session thành các gói php8 tương thích trên Alpine iSH
     os.system("apk add mariadb mariadb-client apache2 wget unzip curl")
-
 
     # 3. CẤU HÌNH FIX LỖI JAVA
     print(f"\033[1;33m[*] Đang cấu hình Fix lỗi NullPointerException...\033[0m")
@@ -38,25 +36,21 @@ def setup_database():
         f.write("innodb_strict_mode=0\n")
         f.write("lower_case_table_names=1\n")
 
-                    # 4. KHỞI ĐỘNG MYSQL (Đã tối ưu kiểm tra tiến trình sống trên iSH)
+    # 4. KHỞI ĐỘNG MYSQL (Đã sửa triệt để tham số mạng và socket cho iSH)
     print(f"\033[1;36m[2/5] Khởi động MariaDB Server...\033[0m")
     os.system("addgroup -g 1000 mysql 2>/dev/null")
     os.system("adduser -u 1000 -D -G mysql mysql 2>/dev/null")
     os.system("mkdir -p /run/mysqld && chown mysql:mysql /run/mysqld")
     os.system("mkdir -p /var/lib/mysql/mysql && chown -R mysql:mysql /var/lib/mysql")
     
-    # Khởi động kèm theo ghi log lỗi ra file tạm để kiểm tra nếu cần
-    os.system("nohup mysqld --skip-grant-tables --skip-networking=0 --user=root > /tmp/mysqld.log 2>&1 &")
+    # Xóa bỏ --skip-networking=0 và thay bằng kích hoạt port 3306 rõ ràng kèm socket chuẩn
+    os.system("nohup mysqld --skip-grant-tables --port=3306 --socket=/run/mysqld/mysqld.sock --user=root > /tmp/mysqld.log 2>&1 &")
     
-    # Chờ và kiểm tra socket xuất hiện thay vì sleep cố định
-    for _ in range(10):
+    # Chờ socket xuất hiện tối đa 15 giây
+    for _ in range(15):
         if os.path.exists("/run/mysqld/mysqld.sock"):
             break
         time.sleep(1)
-
-
-
-
 
     # 5. NẠP DỮ LIỆU TỪ GITHUB
     print(f"\033[1;36m[3/5] Đang nạp SQL từ GitHub...\033[0m")
