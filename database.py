@@ -4,7 +4,7 @@ import time
 def setup_database():
     print('\033[2J\033[H', end='')
     print("\033[1;32m===============================================")
-    print("      HỆ THỐNG TỰ ĐỘNG SQL & PHPMYADMIN        ")
+    print("      HỆ THỐNG TỰ ĐỘNG SETUP SQL & PHPMYADMIN        ")
     print("      (PHIÊN BẢN TỐI ƯU CHO iOS / ISH SHELL)   ")
     print("===============================================\033[0m")
 
