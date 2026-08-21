@@ -9,7 +9,7 @@ def setup_database():
     print("===============================================\033[0m")
 
     # Cấu hình thông số
-    DB_NAME = "dragonball"
+    DB_NAME = "nso_xxsx"
     DB_USER = "root"
     DB_PASS = "" 
     DB_HOST = "127.0.0.1"
@@ -49,13 +49,13 @@ def setup_database():
 
     # 5. NẠP DỮ LIỆU TỪ GITHUB
     print(f"\033[1;36m[3/5] Đang nạp SQL từ GitHub...\033[0m")
-    url_sql = "https://raw.githubusercontent.com/xxsxdev01-debug/DragonBall/main/dragonball.sql"
-    os.system("rm -f dragonball.sql")
-    os.system(f"curl -L {url_sql} -o dragonball.sql")
+    url_sql = "https://raw.githubusercontent.com/xxsxdev01-debug/NinjaSchool_Offline/main/nso_xxsx.sql"
+    os.system("rm -f nso_xxsx.sql")
+    os.system(f"curl -L {url_sql} -o nso_xxsx.sql")
     
     os.system(f"mariadb -u root -e 'DROP DATABASE IF EXISTS {DB_NAME};'")
     os.system(f"mariadb -u root -e 'CREATE DATABASE {DB_NAME} CHARACTER SET utf8 COLLATE utf8_general_ci;'")
-    os.system(f"mariadb -u root {DB_NAME} < dragonball.sql")
+    os.system(f"mariadb -u root {DB_NAME} < nso_xxsx.sql")
     os.system(f"mariadb -u root -e \"GRANT ALL PRIVILEGES ON *.* TO '{DB_USER}'@'localhost'; FLUSH PRIVILEGES;\"")
     
     print(f"\033[1;32m[V] Đã tạo và nạp thành công Database: {DB_NAME}\033[0m")
