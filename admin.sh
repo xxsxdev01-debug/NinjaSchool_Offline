@@ -21,7 +21,7 @@ def Show_Success(action, old_v, new_v):
 def main():
     try:
         # Kết nối Database từ mã nguồn gốc
-        conn = mysql.connect(host='localhost', user='root', password='', database='dragonball')
+        conn = mysql.connect(host='localhost', user='root', password='', database='nso_xxsx')
         cursor = conn.cursor()
     except:
         print(f"{R}[!] Lỗi Kết Nối Cơ Sở Dữ Liệu{X}")
@@ -30,7 +30,7 @@ def main():
     while True:
         Clrscr()
         print(f"{C}┌──────────────────────────────────────────────────┐")
-        print(f"{C}│{Y}        Quản Trị Viên Ngọc Rồng Online            {C}│")
+        print(f"{C}│{Y}        Quản Trị Viên NinjaSchool            {C}│")
         print(f"{C}└──────────────────────────────────────────────────┘{X}")
         
         # Lấy danh sách tài khoản
