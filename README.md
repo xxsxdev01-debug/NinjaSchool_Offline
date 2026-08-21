@@ -38,7 +38,7 @@ ${{\color{yellow}{\textsf{  Chưa Cập Nhật}}}}\$
 - Chắc Chắn Rằng Là Nó Miễn Phí, Mục Đích Của Tôi Tạo Ra Là Để Học Tập
 ### II. Có Cần Kiến Thức Lập Trình Hay Không?
 - Bạn Không Nhất Thiết Phải Có Kiến Thức Lập Trình, Bạn Chỉ Cần Đam Mê Và
-Hiểu Rõ Cách Chơi Của Game Ngọc Rồng Online
+Hiểu Rõ Cách Chơi Của Game NinjaSchool
 ### III. Có Thể Sử Dụng Để Kinh Doanh Thương Mại Không?
 - Hoàn Toàn Có Thể Sử Dụng Để Thương Mại Nếu Bạn Có Nhu Cầu
 ### IV. Địa Chỉ IP Offline Và Port Của Server Là Gì?
@@ -49,7 +49,7 @@ Hiểu Rõ Cách Chơi Của Game Ngọc Rồng Online
   
   
 # HƯỚNG DẪN CÀI ĐẶT
-[Hướng Dẫn Chi Tiết Tại Đây](https://github.com/xxsxdev01-debug/DragonBall/blob/main/HDSD.md)
+[Hướng Dẫn Chi Tiết Tại Đây](https://github.com/xxsxdev01-debug/NinjaSchool_Offline/blob/main/HDSD.md)
 
 </div>
 
@@ -57,7 +57,7 @@ Hiểu Rõ Cách Chơi Của Game Ngọc Rồng Online
 ```
 apt update && apt upgrade -y
 clear
-curl -L "https://raw.githubusercontent.com/xxsxdev01-debug/DragonBall/main/install.sh" -o install.sh && bash install.sh
+curl -L "https://raw.githubusercontent.com/xxsxdev01-debug/NinjaSchool_Offline/main/install.sh" -o install.sh && bash install.sh
 
 ```
 ### MỘT SỐ CÂU LỆNH
