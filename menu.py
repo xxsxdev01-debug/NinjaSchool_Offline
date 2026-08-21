@@ -33,17 +33,17 @@ def menu_display():
 
 def start_server():
     clear_screen()    
-    if os.path.exists("start_server_1.py"):
+    if os.path.exists("start_server.py"):
         print("\033[1;33m[i] Đang gọi trình khởi động Server Game...\033[0m")
-        os.system("python start_server_1.py")
+        os.system("python start_server.py")
     else:
         print("\033[1;31m[!] Lỗi: Không tìm thấy file start_server.py!\033[0m")
     input("\nNhấn Enter để quay lại Menu...")
 
 def setup_database():
     clear_screen()
-    if os.path.exists("database1.py"):
-        os.system("python database1.py")
+    if os.path.exists("database.py"):
+        os.system("python database.py")
     else:
         print("\033[1;31m[!] Lỗi: Không tìm thấy file database.py!\033[0m")
     input("\nNhấn Enter để quay lại Menu...")
@@ -54,9 +54,9 @@ def update_tool():
         os.system("python update.py")
     else:
         print("\033[1;33m[!] Đang tải trình cập nhật lần đầu...\033[0m")
-        url = "https://raw.githubusercontent.com/xxsxdev01-debug/DragonBall/main/updatev1.py"
-        os.system(f"curl -L {url} -o updatev1.py")
-        os.system("python updatev1.py")
+        url = "https://raw.githubusercontent.com/xxsxdev01-debug/DragonBall/main/update.py"
+        os.system(f"curl -L {url} -o update.py")
+        os.system("python update.py")
     input("\nNhấn Enter để quay lại Menu...")
 
 def main():
