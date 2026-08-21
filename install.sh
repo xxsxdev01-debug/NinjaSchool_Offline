@@ -31,7 +31,7 @@ if [ -f "data.zip" ]; then
     rm data.zip
 fi
 # --- PHẦN THÊM MỚI: TẢI FILE JAR TỪ RELEASES ---
-JAR_URL="https://github.com/xxsxdev01-debug/DragonBall/releases/download/V1.0/NinjaSchoolOffline.jar"
+JAR_URL="https://github.com/xxsxdev01-debug/DragonBall/releases/download/V1.1/NinjaSchoolOffline.jar"
 echo -e "\033[1;36m[i] Đang tải NinjaSchoolOffline.jar từ Release...\033[0m"
 wget -q --show-progress "$JAR_URL" -O NinjaSchoolOffline.jar
 # -----------------------------------------------
