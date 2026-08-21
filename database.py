@@ -52,18 +52,12 @@ def setup_database():
             break
         time.sleep(1)
 
-    # 5. NẠP DỮ LIỆU TỪ GITHUB
-    print(f"\033[1;36m[3/5] Đang nạp SQL từ GitHub...\033[0m")
+        # 5. NẠP DỮ LIỆU TỪ GITHUB (Chỉ tải về, không bắt mariadb chạy tự động nữa)
+    print(f"\033[1;36m[3/5] Đang tải file SQL từ GitHub...\033[0m")
     url_sql = "https://raw.githubusercontent.com/xxsxdev01-debug/NinjaSchool_Offline/main/nso_xxsx.sql"
     os.system("rm -f nso_xxsx.sql")
     os.system(f"curl -L {url_sql} -o nso_xxsx.sql")
-    
-    os.system(f"mariadb -u root -e 'DROP DATABASE IF EXISTS {DB_NAME};'")
-    os.system(f"mariadb -u root -e 'CREATE DATABASE {DB_NAME} CHARACTER SET utf8 COLLATE utf8_general_ci;'")
-    os.system(f"mariadb -u root {DB_NAME} < nso_xxsx.sql")
-    os.system(f"mariadb -u root -e \"GRANT ALL PRIVILEGES ON *.* TO '{DB_USER}'@'localhost'; FLUSH PRIVILEGES;\"")
-    
-    print(f"\033[1;32m[V] Đã tạo và nạp thành công Database: {DB_NAME}\033[0m")
+    print(f"\033[1;32m[V] Đã tải xong file SQL về máy!\033[0m")
 
     # 6. CẤU HÌNH PHPMYADMIN
     print(f"\033[1;36m[4/5] Cấu hình phpMyAdmin...\033[0m")
