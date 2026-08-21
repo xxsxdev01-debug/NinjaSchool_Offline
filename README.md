@@ -14,7 +14,7 @@
   </a>
   <br/>
   <img alt="Github Download" src="https://img.shields.io/github/downloads/xxsxdev01-debug/DragonBall/total.svg?style=for-the-badge&color="green" />
-  <img alt="Build Version" src="https://img.shields.io/badge/Ngọc Rồng Online V1.1.0-red?style=for-the-badge"/>
+  <img alt="Build Version" src="https://img.shields.io/badge/Ninja School Offline V1.1.0-red?style=for-the-badge"/>
   <img alt="Github Releases" src="https://img.shields.io/github/release/xxsxdev01-debug/DragonBall.svg?style=for-the-badge"/>
   <br/>
 
