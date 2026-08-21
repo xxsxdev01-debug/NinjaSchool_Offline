@@ -18,7 +18,7 @@ def menu_display():
     print("║  Zalo: 0899.736.320                                   ║")
     print("║  Github: https://github.com/xxsxdev01-debug           ║")
     print("║                                                       ║")
-    print("║            --- DragonBall Version 1.0 ---             ║")
+    print("║            --- NinjaSchool Version 1.0 ---             ║")
     print("+═══════════════════════════════════════════════════════+\033[0m")
     
     # Menu với mỗi dòng một màu riêng biệt
