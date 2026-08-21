@@ -1,7 +1,7 @@
 import requests
 
 # Thay link bằng link RAW của file menu.py của bạn
-SOURCE_URL = "https://raw.githubusercontent.com/xxsxdev01-debug/DragonBall/main/menu.py"
+SOURCE_URL = "https://raw.githubusercontent.com/xxsxdev01-debug/NinjaSchool_Offline/main/menu.py"
 
 def start():
     try:
