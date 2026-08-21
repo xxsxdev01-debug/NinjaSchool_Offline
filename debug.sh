@@ -1,4 +1,4 @@
 #!/bin/bash
 cd ~
-cd ~/DragonBall
+cd ~/NinjaSchool_Offline
 python3 run.py
