@@ -52,7 +52,7 @@ do
     sleep 1
 done
 
-echo -e "\n\033[1;32m[+] Đang khởi chạy Tool DragonBall bằng Python3...\033[0m"
+echo -e "\n\033[1;32m[+] Đang khởi chạy Tool NinjaSchool bằng Python3...\033[0m"
 
 # SỬA Ở ĐÂY: Dùng python3 thay vì python
 python3 menu.py
