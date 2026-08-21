@@ -38,18 +38,22 @@ def setup_database():
         f.write("innodb_strict_mode=0\n")
         f.write("lower_case_table_names=1\n")
 
-                # 4. KHỞI ĐỘNG MYSQL (Đã tối ưu để tạo bảng hệ thống thủ công tránh Segmentation fault)
+                    # 4. KHỞI ĐỘNG MYSQL (Đã tối ưu kiểm tra tiến trình sống trên iSH)
     print(f"\033[1;36m[2/5] Khởi động MariaDB Server...\033[0m")
     os.system("addgroup -g 1000 mysql 2>/dev/null")
     os.system("adduser -u 1000 -D -G mysql mysql 2>/dev/null")
     os.system("mkdir -p /run/mysqld && chown mysql:mysql /run/mysqld")
-    
-    # Tạo nhanh thư mục chứa data nếu chưa có để mysqld không bị crash khi khởi động
     os.system("mkdir -p /var/lib/mysql/mysql && chown -R mysql:mysql /var/lib/mysql")
     
-    # Khởi động mysqld ở chế độ an toàn tối đa
-    os.system("nohup mysqld --skip-grant-tables --skip-networking=0 --user=root > /dev/null 2>&1 &")
-    time.sleep(6)
+    # Khởi động kèm theo ghi log lỗi ra file tạm để kiểm tra nếu cần
+    os.system("nohup mysqld --skip-grant-tables --skip-networking=0 --user=root > /tmp/mysqld.log 2>&1 &")
+    
+    # Chờ và kiểm tra socket xuất hiện thay vì sleep cố định
+    for _ in range(10):
+        if os.path.exists("/run/mysqld/mysqld.sock"):
+            break
+        time.sleep(1)
+
 
 
 
