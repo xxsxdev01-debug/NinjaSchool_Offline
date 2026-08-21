@@ -4,9 +4,9 @@ import threading
 import sys
 
 # Cấu hình file
-jar_file = "NgocRongOnline.jar"
+jar_file = "NinjaSchoolOffline.jar"
 driver_file = "mysql-driver.jar"
-main_class = "nro.models.server.ServerManager"
+main_class = "server.NinjaSchool" # Đã sửa thành class của NSO
 log_file = "server.log"
 
 def display_logs():
@@ -36,7 +36,7 @@ def print_fixed_menu():
     menu_start = rows - 5
     sys.stdout.write(f"\033[{menu_start};1H")
     sys.stdout.write("\033[1;32m╔═════════════════════════════════════════════╗\n")
-    sys.stdout.write("║      HỆ THỐNG QUẢN LÝ SERVER DRAGONBALL     ║\n")
+    sys.stdout.write("║      Hệ Thống Quản Lý Server NinjaSchool     ║\n")
     sys.stdout.write("║ [1].RAM  [2].Port  [3].Admin  [4].TẮT (SAVE)║\n")
     sys.stdout.write("╚═════════════════════════════════════════════╝\033[0m\n")
     sys.stdout.write("\033[1;36m➤ Nhập lệnh: \033[0m")
@@ -60,7 +60,7 @@ def print_big_debug_null():
 ║{YELLOW}  Zalo: 0899.736.320                                      {RED}║
 ║{YELLOW}  Github: https://github.com/xxsxdev01-debug              {RED}║
 ║                                                          ║
-║{RED}            --- DragonBall Version 1.0 ---                 ║
+║{RED}            --- NinjaSchool Version 1.0 ---                 ║
 +══════════════════════════════════════════════════════════+{RESET}"""
     print(logo)
 
@@ -78,7 +78,7 @@ def main():
 
     cmd_fix = (
         f"tail -f /dev/null | java -Xmx512M -Duser.timezone=UTC "
-        f"-cp \"{driver_file}:{jar_file}\" {main_class} > {log_file} 2>&1 &"
+        f"-cp \"lib/*:{driver_file}:{jar_file}\" {main_class} > {log_file} 2>&1 &"
     )
     os.system(cmd_fix)
 
@@ -132,4 +132,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
