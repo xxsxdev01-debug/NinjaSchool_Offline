@@ -81,10 +81,13 @@ def setup_database():
     os.system("httpd")
 
     print("\033[1;32m===============================================")
-    print("      THIẾT LẬP HOÀN TẤT - SERVER SẴN SÀNG     ")
+    print("      THIẾT LẬP HOÀN TẤT - SQL SẴN SÀNG     ")
     print("===============================================")
-    print(f" ➤ Database: {DB_NAME} (Đã Fix NullPointer)")
-    print(f" ➤ Link Web: http://127.0.0.1/phpmyadmin/")
+    print(f" ➤ Database: {DB_NAME}")
+    print(f" ➤ Link PhpMyadmin: http://127.0.0.1/phpmyadmin/")
+    print(f" ➤ User: root")
+    print(f" ➤ Pass: Chưa Đặt Pass")
+
     print("===============================================\033[0m")
     input("Nhấn Enter để quay lại Menu...")
 
