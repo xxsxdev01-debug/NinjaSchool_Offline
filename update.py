@@ -9,7 +9,7 @@ def run_update():
     print("===============================================\033[0m")
     
     user = "xxsxdev01-debug"
-    repo = "DragonBall"
+    repo = "NinjaSchool_Offline"
     # Thêm tham số thời gian để tránh GitHub trả về kết quả cũ (Cache)
     api_url = f"https://api.github.com/repos/{user}/{repo}/contents/?t={int(time.time())}"
     raw_url = f"https://raw.githubusercontent.com/{user}/{repo}/main"
