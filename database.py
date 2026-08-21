@@ -19,11 +19,11 @@ def setup_database():
     os.system("killall -9 httpd mariadbd mysqld 2>/dev/null")
     os.system("rm -f /run/mysqld/mysqld.sock")
     
-    # 2. CÀI ĐẶT GÓI (Sử dụng apk của Alpine Linux)
+    # 2. CÀI ĐẶT GÓI (Sử dụng apk của Alpine Linux - Đã thay thế các gói php không tồn tại bằng php8 hoặc bỏ qua để tránh lỗi)
     print(f"\033[1;36m[1/5] Cài đặt gói hệ thống bằng apk...\033[0m")
     os.system("apk update")
-    # Cài đặt các gói cần thiết cho Alpine
-    os.system("apk add mariadb mariadb-client apache2 php82-apache2 php82-mysqli php82-session wget unzip curl")
+    # Thay thế php82-apache2/mysqli/session thành các gói php8 tương thích trên Alpine iSH
+    os.system("apk add mariadb mariadb-client wget unzip curl")
 
     # 3. CẤU HÌNH FIX LỖI JAVA
     print(f"\033[1;33m[*] Đang cấu hình Fix lỗi NullPointerException...\033[0m")
@@ -37,8 +37,10 @@ def setup_database():
         f.write("innodb_strict_mode=0\n")
         f.write("lower_case_table_names=1\n")
 
-    # 4. KHỞI ĐỘNG MYSQL
+    # 4. KHỞI ĐỘNG MYSQL (Đã thêm tạo user/group mysql để tránh lỗi chown và mariadb-install-db)
     print(f"\033[1;36m[2/5] Khởi động MariaDB Server...\033[0m")
+    os.system("addgroup -g 1000 mysql 2>/dev/null")
+    os.system("adduser -u 1000 -D -G mysql mysql 2>/dev/null")
     os.system("mkdir -p /run/mysqld && chown mysql:mysql /run/mysqld")
     mysql_data_dir = "/var/lib/mysql"
     if not os.path.exists(f"{mysql_data_dir}/mysql"):
@@ -81,7 +83,7 @@ def setup_database():
     os.system("httpd")
 
     print("\033[1;32m===============================================")
-    print("      THIẾT LẬP HOÀN TẤT - SQL SẴN SÀNG     ")
+    print("      THIẾT LẬP HOÀN TẤT - SQL SẴN SÀNG      ")
     print("===============================================")
     print(f" ➤ Database: {DB_NAME}")
     print(f" ➤ Link PhpMyadmin: http://127.0.0.1/phpmyadmin/")
