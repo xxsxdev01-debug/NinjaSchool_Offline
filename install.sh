@@ -4,8 +4,8 @@
 termux-setup-storage
 
 # 2. Cập nhật và cài đặt các gói hỗ trợ
-pkg update -y
-pkg install -y git python python-pip openjdk-8 wget unzip
+apk update
+apk add git python3 py3-pip openjdk8 wget unzip
 
 # 3. Cài đặt các thư viện Python (Dùng python3 để tránh lỗi)
 python3 -m pip install --upgrade pip
